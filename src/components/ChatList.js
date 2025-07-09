@@ -1,12 +1,14 @@
 import React from 'react';
 import { Bot } from 'lucide-react';
 
-const ChatList = ({ noteChats }) => (
+
+const ChatList = ({ noteChats, onChatClick }) => (
   <div className="flex-1 overflow-y-auto">
     {noteChats.map((chat) => (
       <div
         key={chat.id}
         className="flex items-center p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 active:bg-gray-100 group"
+        onClick={() => onChatClick && onChatClick(chat)}
       >
         {/* Avatar */}
         <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-lg mr-3 relative">

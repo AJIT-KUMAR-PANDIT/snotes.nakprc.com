@@ -5,6 +5,7 @@ import Tabs from '../components/Tabs';
 import SearchBar from '../components/SearchBar';
 import QuickActions from '../components/QuickActions';
 import ChatList from '../components/ChatList';
+import SNotesApp from '../components/sNotesApp';
 import FloatingActionButton from '../components/FloatingActionButton';
 import BottomNavigation from '../components/BottomNavigation';
 import { MessageCircle, Users, Phone } from 'lucide-react';
@@ -93,16 +94,26 @@ const tabs = [
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState('chats');
   const [search, setSearch] = useState('');
+  const [selectedChat, setSelectedChat] = useState(null);
 
   return (
     <div className="flex flex-col h-screen bg-white max-w-md mx-auto relative">
-      <Header />
-      <Tabs tabs={tabs} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-      <SearchBar value={search} onChange={e => setSearch(e.target.value)} />
-      <QuickActions />
-      <ChatList noteChats={noteChats.filter(chat => chat.title.toLowerCase().includes(search.toLowerCase()))} />
-      <FloatingActionButton />
-      <BottomNavigation />
+      {selectedChat ? (
+        <SNotesApp />
+      ) : (
+        <>
+          <Header />
+          <Tabs tabs={tabs} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+          <SearchBar value={search} onChange={e => setSearch(e.target.value)} />
+          <QuickActions />
+          <ChatList 
+            noteChats={noteChats.filter(chat => chat.title.toLowerCase().includes(search.toLowerCase()))}
+            onChatClick={setSelectedChat}
+          />
+          <FloatingActionButton />
+          <BottomNavigation />
+        </>
+      )}
     </div>
   );
 }
