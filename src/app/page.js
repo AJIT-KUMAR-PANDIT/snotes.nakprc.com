@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import Tabs from '../components/Tabs';
-import SearchBar from '../components/SearchBar';
-import QuickActions from '../components/QuickActions';
-import ChatList from '../components/ChatList';
-import SNotesApp from '../components/sNotesApp';
-import FloatingActionButton from '../components/FloatingActionButton';
-import BottomNavigation from '../components/BottomNavigation';
+import Header from '../components/Header.jsx';
+import Tabs from '../components/Tabs.jsx';
+import SearchBar from '../components/SearchBar.jsx';
+import QuickActions from '../components/QuickActions.jsx';
+import ChatList from '../components/ChatList.jsx';
+import SNotesApp from '../components/sNotesApp.jsx';
+import FloatingActionButton from '../components/FloatingActionButton.jsx';
+import BottomNavigation from '../components/BottomNavigation.jsx';
 import { MessageCircle, Users, Phone } from 'lucide-react';
 
 const noteChats = [
